@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <h2>Modifier une clinique :</h2>
+    </div>
+
+    <form >
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID Clinique</label>
+        <input type="text" [(ngModel)]="currentClinique.idClinique" name="idClinique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label>Nom Clinique</label>
+        <input type="text" [(ngModel)]="currentClinique.nomClinique" name="nomClinique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Adresse</label>
+        <input type="text" [(ngModel)]="currentClinique.adresse" name="adresse" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Téléphone</label>
+        <input type="tel" [(ngModel)]="currentClinique.telephone" name="telephone" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date création</label>
+        <input type="date" [ngModel]="currentClinique.dateCreation | date: 'yyyy-MM-dd'"
+            (ngModelChange)="currentClinique.dateCreation= $event" name="dateCreation" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>TypeClinique</label>
+        <select class="form-control form-control-lg" id="idtype" name="idtype"[(ngModel)]="updatedidtype">
+        @for(type of typeClinique; track type.idtype){
+        <option [ngValue]="type.idtype"> {{type.nomtype}} </option>
+        }
+        </select>
+    </div>
+    <div class="mt-2">
+        <button type="submit" (click)="updateClinique()" class="btn btn-success">Modifier</button>
+    </div>
+</form>
+</div>

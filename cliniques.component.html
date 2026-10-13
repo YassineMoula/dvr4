@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                @if(cliniques.length!=0)
+                {
+                <thead>
+                        <tr><th>N</th><th>ID</th><th>Nom</th><th>Adresse</th><th>Téléphone</th><th>Date création</th><th>TypeClinique</th> <th>Actions</th></tr>
+                </thead>
+                }
+
+                @for(clinique of cliniques; track clinique.idClinique; let index=$index)
+                {
+                    <tbody>
+                        <tr>
+                            <td>{{index}}</td>
+                            <td>{{clinique.idClinique}}</td>
+                            <td>{{clinique.nomClinique}}</td>
+                            <td>{{clinique.adresse}}</td>
+                            <td>{{clinique.telephone}}</td>
+                            <td>{{clinique.dateCreation | date:'dd/MM/yyyy'}}</td>
+                            <td>{{clinique.typeClinique.nomtype}}</td>
+                            <td>
+                                <a class="btn btn-danger me-2" (click)="supprimerClinique(clinique)">Supprimer</a>
+                                <a class="btn btn-success" [routerLink]="['/update-clinique',clinique.idClinique]">Modifier</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+</div>

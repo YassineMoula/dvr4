@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <h2>Ajouter une clinique :</h2>
+    </div>
+
+<form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID Clinique</label>
+        <input type="text" [(ngModel)]="newClinique.idClinique" name="idClinique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label>Nom Clinique</label>
+        <input type="text" [(ngModel)]="newClinique.nomClinique" name="nomClinique" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Adresse</label>
+        <input type="text" [(ngModel)]="newClinique.adresse" name="adresse" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Téléphone</label>
+        <input type="tel" [(ngModel)]="newClinique.telephone" name="telephone" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date création</label>
+        <input type="date" [(ngModel)]="newClinique.dateCreation" name="dateCreation" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    <label>TypeClinique</label>
+    <select class="form-control form-control-lg" id="idtype" name="idtype"[(ngModel)]="newClinique.idtype">
+        @for(type of typeClinique; track type.idtype){
+        <option [ngValue]="type.idtype"> {{type.nomtype}} </option>
+        }
+    </select>
+        </div>
+    <div class="mt-2">
+        <button type="submit" (click)="addClinique()" class="btn btn-success">Ajouter</button>
+        <div>
+            <h3>{{ message! }}</h3>
+        </div>
+    </div>
+</form>
+</div>
